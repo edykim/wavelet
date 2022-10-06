@@ -10,7 +10,7 @@ class SearchEngineHandler implements URLHandler {
 
 		if (url.getPath().equals("/")) {
 			// print all keywords that registered
-			return String.format("Total %d keywords:\n\n%s", keywords.size(), parseStringList(keywords));
+			return String.format("Total %d keywords:\n%s", keywords.size(), parseStringList(keywords));
 
 		} else if (url.getPath().contains("/add")) {
 			// add new keyword into keywords
@@ -30,7 +30,7 @@ class SearchEngineHandler implements URLHandler {
 						found.add(keyword);
 					}
 				}
-				return String.format("Total %d keywords found:\n\n%s", found.size(), parseStringList(found));
+				return String.format("Total %d keywords found:\n%s", found.size(), parseStringList(found));
 			}
 		}
 
