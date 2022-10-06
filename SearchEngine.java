@@ -16,8 +16,12 @@ class SearchEngineHandler implements URLHandler {
 			// add new keyword into keywords
 			String[] parameters = url.getQuery().split("=");
 			if (parameters[0].equals("s")) {
-				keywords.add(parameters[1]);
-				return String.format("\"%s\" is added in keywords! Total %d keywords.", parameters[1], keywords.size());
+				if (!keywords.contains(parameters[1])) {
+					keywords.add(parameters[1]);
+					return String.format("\"%s\" is added in keywords! Total %d keywords.", parameters[1], keywords.size());
+				} else {
+					return String.format("\"%s\" is already in the keywords! Total %d keywords.", parameters[1], keywords.size());
+				}
 			}
 
 		} else if (url.getPath().contains("/search")) {
